@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.TestMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.demo.dto.Person">
+        <result column="PERSON_ID" jdbcType="INTEGER" property="personId" />
+        <result column="NAME" jdbcType="VARCHAR" property="name" />
+        <result column="AGE" jdbcType="DECIMAL" property="age" />
+        <result column="HEIGHT" jdbcType="DOUBLE" property="height" />
+    </resultMap>
+
+    <select id="queryList" resultMap="BaseResultMap">
+        SELECT
+        p.PERSON_ID,
+        p.NAME,
+        p.AGE,
+        p.HEIGHT
+        FROM PERSON p
+        WHERE p.AGE=#{age}
+    </select>
+
+</mapper>

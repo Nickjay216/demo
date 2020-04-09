@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2 >1、传普通值（String）</h2>
+<span  th:text="${uname}" ></span>
+
+<h2>2、传集合（list）</h2>
+<table>
+    <tr>
+        <td>用户名字</td>
+        <td>用户年龄</td>
+        <td>用户身高</td>
+    </tr>
+    <tr th:each="p : ${personList}">
+        <td th:text="${p.name}"></td>
+        <td th:text="${p.age}"></td>
+        <td th:text="${p.height}"></td>
+    </tr>
+</table>
+<select>
+    <option th:each="person :${personList}" th:value="${person.name}" th:text="${person.name}" ></option>
+</select>
+<h2>3、传一个html页面代码过来</h2>
+<span th:utext="${tohtml}" ></span>
+
+</body>
+</html>
